@@ -4,22 +4,29 @@
 import random
 
 def ahorcados():
-    palabras=["hoja","cola","uva"]
+    palabras=["hojita","cola","uva"]
     palabra=list(random.choice(palabras))
     oculta=[]
-    adivina=[]
-
-    for x in range(0,len(palabra)):
-        adivina.append(f=input("ingresa numero"))
-        match x:
-            case 1:
-                print("x is equal to 1")
-            case 2:
-                print("x is equal to 2")
-            case _:
-                print("x is not equal to 1 or 2")
+    vida=len(palabra)
+    print("ADIVINA LA PALABRA")
+#imprimimos la palabra en *
+    for i in range(0,len(palabra)):
         oculta.append("*")
-    print(palabra)
     print(oculta)
-    print(adivina)
-print(ahorcados())
+#recoremos la palabra
+    for x in range(0,len(palabra)):
+#  pedimos que ingrese su letra
+        letra=input(f"{vida} vidas, ingresa tu letra: ").lower()
+#validamos que letra este en la palabra
+        if letra in palabra:
+            a=palabra.index(letra)
+            oculta[a]=letra
+#mostramos en pantalla la palacon la letra
+        print(oculta)
+#reducimos vida por intento
+        vida-=1
+    if "*" in oculta:
+        print("PERDISTE")
+    else:
+        print("EN HORA BUENA HAS GANADO")
+ahorcados()
