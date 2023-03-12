@@ -2,7 +2,6 @@
 # El jugador en cada turno deberá elegir una letra y si la letra se encuentra en la palabra oculta, el sistema le va a mostrar en qué lugares se encuentra.
 # Pero si el jugador dice una letra que no se encuentra en la palabra oculta, en ese caso pierde una vida.
 import random
-
 def ahorcados():
     palabras=["hojita","cola","uva"]
     palabra=list(random.choice(palabras))
